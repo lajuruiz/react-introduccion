@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>React vainilla </title>
+</head>
+<body>
+    <!-- root es como de fuente o raiz, es una convencion y se usa cuando trabajamos html escrito desde js  -->
+    <div id="root">
+    </div>
+
+    <!-- Load React. -->
+    <!-- Note: when deploying, replace "development.js" with "production.min.js". -->
+    <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
+
+<!--     <script>
+        const root=getElementById("root");
+        root.innerHTML="oli React"
+    </script> -->
+
+    <script> 
+        'use strict';
+    
+        const e = React.createElement;
+
+        class LikeButton extends React.Component {
+            constructor(props) {
+                super(props);
+                this.state = { liked: false };
+            }
+
+            render() {
+                if (this.state.liked) {
+                    return 'You liked this.';
+                }
+
+                return e(
+                    'button',
+                    { onClick: () => this.setState({ liked: true }) },
+                    'Like'
+                );
+            }
+        }
+        const root = document.getElementById("root");
+        ReactDOM.render(e(LikeButton), root);
+        
+    </script>
+    <!--el Id de la etiqueta que se esta buscando getElementById("root")-->
+    <!--la const root a encontrar el elemento con el id root  -->
+    <!-- Cambia el contenido HTML de un elemento con id!!!-->
+</body>
+</html>
